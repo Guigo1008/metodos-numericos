@@ -3,7 +3,6 @@ import numpy as np
 
 # Algorítmo 1:
 
-
 def algoritmo_1(N):
     n = int(math.log2(N)) + 1
     P = N
@@ -42,3 +41,19 @@ def algoritmo_2(N):
 
     pot = 2**n
     M = N - pot
+    a = np.zeros((n+1))
+    a[n] = 1.
+
+    for i in range(n):
+        pot = pot/2
+        if M < pot:
+            a[n-1] = 0.
+        else:
+            a[n-1] = 1.
+            M = M - pot
+
+    return a
+
+print(algoritmo_2(3))
+
+
